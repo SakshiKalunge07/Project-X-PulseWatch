@@ -22,6 +22,24 @@
 - Functions:- The bias is added to the weighted sum of inputs before applying the activation function. It acts as an offset, allowing the activation function to shift to the left or right, which can help the model fit the data better.
 
 ### What are is a activation function ?
-It is a mathematical function that generates the output of each neuron.
+It is a mathematical function that generates the output of each neuron. It introduces non-linearity, helping the network learn complex patterns beyond just straight lines.
 
+--- 
+### Line boundaries
+A line boundary is a straight line or hyperplane(in higher dimensions) that seperates different classes in a dataset.
+
+![Line Boundary](Images/line-boundary.png)
+
+Here W:weight , x:input , y:label/output , b:bias
+
+Now if we start working with (n\*1) dimentional input features the straight line will be replaced with a n-dimensional plane.We will have (1*n) dimension weight vector and (1\*1) dimension bias.
+
+![3D boundary](Images/higher-dimensions.png)
+
+---
+### Perceptrons
+A perceptron is one of the simplest types of artificial neural networks and serves as a fundamental building block for more complex neural network architectures.
+It consists of a single neuron that takes multiple inputs, applies weights to them, and produces a binary output.   
+
+![3D boundary](Images/perceptron.png)
 
