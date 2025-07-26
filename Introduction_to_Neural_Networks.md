@@ -41,5 +41,39 @@ Now if we start working with (n\*1) dimentional input features the straight line
 A perceptron is one of the simplest types of artificial neural networks and serves as a fundamental building block for more complex neural network architectures.
 It consists of a single neuron that takes multiple inputs, applies weights to them, and produces a binary output.   
 
-![3D boundary](Images/perceptron.png)
+![Perceptron](Images/perceptron.png)
+
+### Error Function
+an error function (or loss function) measures how well your model's predictions match the actual data.
+
+--- 
+
+### Discrete and Continuous Predictions
+**Discrete Prediction** :- Predictions that result in distinct categories or classes (e.g., yes/no, accepted/rejected).
+**Continuous Predictions** :- Predictions that yield a range of values, usually between 0 and 1, representing probabilities.  
+
+![Signoid](Images/discrete-and-continuous.png)  
+
+**Signoid Function** :-  
+It's mathematical function that maps any real-valued number into the range between 0 and 1.  
+- *Larger positive numbers are mapped closer to 1*
+- *Smaller negative numbers are mapped closer to 0*
+- *0 is mapped to 0.5*
+
+### Multi-Class Classification and Softmax
+**Softmax Function** :-  
+The Softmax function is an activation function that converts a vector of raw scores into probabilities. It is commonly used in multi-class classification problems.
+
+![softmax](Images/softmax.png)  
+
+### One-Hot encoding  
+Machine learning algorithms require numerical input. Categorical data, such as classes or labels, must be converted into numbers.  
+For binary categories (e.g., received a gift or not), a simple encoding can be used: 1 for received and 0 for not received.
+One-hot encoding creates a binary column for each class.  
+For example:
+Duck: [1, 0, 0] ,
+Beaver: [0, 1, 0] , 
+Walrus: [0, 0, 1]
+
+
 
