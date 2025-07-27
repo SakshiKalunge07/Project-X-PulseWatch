@@ -75,5 +75,134 @@ Duck: [1, 0, 0] ,
 Beaver: [0, 1, 0] , 
 Walrus: [0, 0, 1]
 
+### Cross Entropy  
+ There is a connection between probabilities and error functions, and it's called Cross-Entropy.
+In machine learning, it helps us understand how well our model's predicted probabilities match the actual outcomes.  
+Use cross-entropy when you're working on classification tasks, especially when you have multiple classes (like identifying different types of animals in images).
+>sum of all (-ln(probabilities))   
+
+*Good* Model has lower cross entropy and *Bad* model has higher cross entropy.
+
+### Error function
+
+![error function](Images/error-function.png)  
+
+For multi-class models we have:- 
+
+![multi-class error funtion](Images/multi-error-function.png)  
+### Logistic Regression  
+The Logistic Regression Algorithm. And it basically goes like this:
+
+- Take your data
+- Pick a random model
+- Calculate the error
+- Minimize the error, and obtain a better model
+
+### Gradient Descent
+![Gradient-Descent](Images/Gradient-Descent.png)
+
+### FeedForward
+Feedforward is the process neural networks use to turn the input into an output.It involves passing the input through the network layers to generate predictions.
+![feedforward](Images/feedforward.png)  
+
+### BackPropagation
+ Backpropagation is an algorithm used to train artificial neural networks by minimizing the error between predicted outputs and actual outputs. It efficiently computes the gradient of the loss function with respect to each weight in the network.
+
+**Process**:
+
+- Feedforward: Input data is passed through the network, and predictions are made.
+
+- Calculate Loss: The error (loss) is computed using a loss function (e.g., cross-entropy for classification).
+
+- Compute Gradients: The algorithm calculates the gradient of the loss with respect to each weight by applying the chain rule of calculus. This involves:
+
+    - Calculating the derivative of the loss with respect to the output of the network.
+    - Propagating this error backward through the network layers to compute gradients for each weight.
+- Update Weights: The weights are updated using an optimization algorithm (e.g., gradient descent) to minimize the loss
+--- 
+### Types of errors
+- Underfitting :- Here model is too simple to capture the underlying trend of the data. This results in poor performance on both the training and validation/test sets. 
+- Overfitting :- Here model is too complex that capturing noise and outliers instead of the underlying pattern. This results in high accuracy on the training set but poor generalization to new, unseen data.  
+>If we are to choose an architecture for our need we must try to choose just right or more complex model and then try to apply some techniques for avoiding overfitting.
+---
+### Early Stopping
+
+As we train our model on the training set, it tries to minimize the error by adjusting its parameters to fit the training data as closely as possible.
+However, if the model becomes too focused on fitting the training data perfectly, it starts to memorize rather than learn general patterns.
+As a result, when we evaluate the model on the test set (unseen data), its performance may degrade, and the error increases.
+This is because the model fails to generalize to new inputs — it has overfit to the noise or specific details of the training data.
+![how-overfitting](Images/how-overfitting.png)
+
+*Early stopping* is a regularization technique used to prevent overfitting in machine learning models, particularly neural networks. It involves monitoring the model's performance on a validation set during training and stopping the training process when performance starts to degrade.
+![early-stopping](Images/early-stopping.png)  
+
+During training, we monitor the error (or loss) on both the training set and a validation set (a small portion of data not used for training but also not completely unseen like the test set).
+Initially, both training and validation errors decrease. But after a certain point, the validation error starts to increase while training error continues to decrease.
+This signals that the model is starting to overfit the training data.
+
+---
+## Regularization
+
+**Definition**: Regularization is a technique used in machine learning to prevent overfitting by adding a penalty to the loss function. It helps to ensure that the model generalizes well to unseen data.
+
+**Purpose**: The main goal of regularization is to reduce model complexity, which can lead to better performance on validation and test datasets.
+
+![regularization](Images/regularization.png)
+
+**L1 Regularization** adds the absolute value of weights to the loss function:
+
+Loss=Original Loss+𝜆∑∣𝑤∣
+
+- Encourages sparsity (some weights become exactly zero).
+
+- Helps in feature selection.
+
+**L2 Regularization** adds the squared value of weights:
+
+Loss=Original Loss+𝜆∑𝑤^2
+
+- Penalizes large weights more heavily than small ones.
+
+- Helps in keeping the model smooth and generalizable.
+
+###  DropOut
+ Dropout is a regularization technique used in neural networks to prevent overfitting during training. It involves randomly "dropping out" (setting to zero) a fraction of the neurons in the network during each training iteration.
+
+**How It Works**:
+
+- During training, for each forward pass, a specified percentage of neurons (e.g., 20% or 50%) are randomly selected and temporarily removed from the network.
+- This means that those neurons do not contribute to the forward pass or the backpropagation step for that iteration.
+- The remaining neurons must learn to compensate for the dropped-out neurons, promoting redundancy and robustness in the network.
+
+### ReLU (Activation Function)
+ ReLU is an activation function used in neural networks that outputs the input directly if it is positive; otherwise, it outputs zero. 
+
+### Batch Gradient Descent
+**Definition**: Batch gradient descent computes the gradient of the loss function using the entire training dataset. It updates the model parameters only once per epoch.  
+**Disadvantages**:
+Memory-intensive: Requires loading the entire dataset into memory, which can be impractical for large datasets.
+Slow updates: Can take longer to converge since it updates parameters only once per epoch.
+
+### Stochastic Gradient Descent (SGD)
+**Definition**: Stochastic gradient descent updates the model parameters using only one subset of training dataset at a time. This means that the gradient is computed and the parameters are updated for each individual training example.  
+**Advantages**:
+Faster updates: Parameters are updated more frequently, which can lead to faster convergence.
+Less memory-intensive: Only one training example is needed at a time, making it suitable for large datasets.
 
 
+### Learning Rates
+- Higher learning rates can cause the model to overshoot the optimal point or even diverge.
+→ The loss may never converge or keep oscillating.
+
+- Smaller learning rates make training slower, but they allow the model to converge more precisely, increasing the chance of reaching or getting very close to the global minimum.
+
+- Ideal strategy:
+Start with a higher learning rate to make fast progress initially, and then gradually reduce it as the model approaches the minimum.
+
+### Momentum  
+**Definition**: Momentum is an optimization technique used in gradient descent to accelerate convergence and improve the stability of the training process. It helps to overcome issues like local minima and oscillations.
+
+**Concept**: The idea behind momentum is to maintain a velocity vector that accumulates the gradients of past iterations. This velocity helps to push the parameters in the relevant direction, smoothing out updates.
+
+![momentum](Images/momentum.png)
+Here we can see, the far away steps are multiplied by higher powers of beta and beta is between 0 to 1, hence higher powers means smaller value (less important/contribution).
