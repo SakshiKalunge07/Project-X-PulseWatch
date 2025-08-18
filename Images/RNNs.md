@@ -65,3 +65,5 @@ This gate updates the short term memory.
 
 The final architecture of LSTM is as follows:- 
 ![alt text](image-5.png)
+
+---
