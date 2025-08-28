@@ -68,5 +68,20 @@ When you run an API with FastAPI + Uvicorn, Uvicorn is your web server.
 
 ### So the reason for FASTAPIs being fast is because components are asynchronous .
 
+---
+Softwares:    
+1.Static  
+2.Dynamic    
+Dynamic software = changes happen often (like web apps, databases, etc). CRUD are the 4 basic operations that make it dynamic:
+
+- Create → Add new data.    
+  Example: Sign up on Instagram → new user account created.    
+- Read → View or fetch data.    
+  Example: Checking your feed → app reads posts from the database.    
+- Update → Modify existing data.   
+  Example: Editing your profile picture → database entry updated.
+- Delete → Remove data.   
+  Example: Deleting a comment → it disappears from the system.
+
 
 
